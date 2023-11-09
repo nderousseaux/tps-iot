@@ -40,4 +40,12 @@ Le DAO (Destination Advertisement Object) transporte des informations sur les no
 
 ![DAO](Capture/DAO.png)
 
+Racine : 1
+Rank : 256
+
+1er à rejoindre : 5
+Rank : 896
+
+## Question 3
+
 

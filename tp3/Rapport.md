@@ -21,5 +21,23 @@ Pour simuler un message envoyé, mais pas reçu, on a diminué le *success ratio
 
 ## Question 3
 
+## Question 2 
+
+La communication commence par un broacast de tous les noeuds qui broadcast DIS
+
+![DIS](Capture/DIS.png)
+
+La racine envoie le premier DIO. Il s'agit du noeud 1
+
+![1erDIO](Capture/1erDIO.png)
+
+Les autres noeuds des DIO pour que les noeuds plus bas puisse rejoindre le réseau. 
+
+![AutreDIO](Capture/AutreDIO.png)
+
+Les noeuds envoie alors un DAO à leur parent. 
+Le DAO (Destination Advertisement Object) transporte des informations sur les noeuds que l’émetteur peut joindre.
+
+![DAO](Capture/DAO.png)
 
 

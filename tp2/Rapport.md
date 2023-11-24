@@ -40,6 +40,28 @@ Enfin le parent repond avec un Child ID Response.
 
 L'adresse RLOC est fournie par le parent à l'envoie du message Child ID Response. 
 L'IPV6 ? 
+Oui 
 
-## ICMPv6 
+- Dans childID request, il demande une adresse RLOC16
+![Requiest](Capture/Rloc16request.png)
+
+- Dans ChildID response il envoie l'adresse RLOC16
+![Addr](Capture/RLOC16addr.png)
+
+C'est ça 
+![rloc16](Capture/rloc16.png)
+
+
+
+## Question 4 : ICMPv6 
+
+On fait un ping de tous les noeuds vers un autre et on remarque que le ping passe bien
+
+- Exemple de commande
+![Commande](Capture/cmd_ping.png)
+
+La capture
+![Ping](Capture/capture_ICMPv6.png)
+
+## Question 5 : UDP (COAP)
 

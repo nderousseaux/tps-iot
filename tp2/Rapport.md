@@ -78,6 +78,43 @@ Non les messages ne sont pas fragementé. Ils sont juste retransmis plusieurs fo
 
 # Question 6
 
-Leader : 28
-Router : 29
+Tout d'abord on commence avec la structure suivante : 
+```
+m3-53;child
+m3-54;child
+m3-56;child
+m3-55;leader
+m3-57;router
+```
 
+Puis on éteint le noeud leader
+On remarque que 57 envoie plusieurs MLE adv, avant de detecter l'absence de leader  
+*55 est éteint à partir du paquet marqué*
+![Capture du spam des MLEadv](Capture/Q6/Extinctionde55.png)
+
+57 detecte l'absense de leader donc commence à envoyer des parents request
+![Prends ce ratio NATHA](Capture/Q6/Parent_req.png)
+
+Apres quelques Data Response, les childs essayent de joindre leur encien leader mais en vain. 
+Avec un Childupdaterequest
+![messpourR](Capture/Q6/MesspourR1.png)
+
+On le voit bien ici
+
+![MessagepourR2](Capture/Q6/MesspourR2.png)
+
+Certains commencent alors à detecter l'absence de leader donc commencent à envoyer des parents requests
+![Parent request](Capture/Q6/Parent_R.png)
+
+Il vont ensuite recevoir Parent response de 57, qui s'est autoproclamé leader. 
+![Parent request](Capture/Q6/P_response.png)
+
+C'est alors que debute l'echange de child ID request et response
+![Child request & Response](Capture/Q6/Child_Rs.png)
+
+C'est ainsi que 54 deviens un child de 57 qui est à present le leader. 
+On a pris l'exemple de 54 pour les captures mais c'est pareil pour les autres aussi. (53, 54 et 56)
+
+# Question 7
+
+[Tuto utils](https://www.iot-lab.info/learn/tutorials/riot/riot-public-ipv6-a8-m3/)

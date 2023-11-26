@@ -61,7 +61,23 @@ On fait un ping de tous les noeuds vers un autre et on remarque que le ping pass
 ![Commande](Capture/cmd_ping.png)
 
 La capture
-![Ping](Capture/capture_ICMPv6.png)
+![Ping](Capture/Ping.png)
 
 ## Question 5 : UDP (COAP)
+
+- Tout d'abord on crée la ressource
+![Coap_start1](Capture/coap/start1.png)
+
+On résupere la ressource test dans le serveur coap crée precedement
+![Coap_start2](Capture/coap/Start2.png)
+
+- La capture nous montre que la communication s'est déroulé sans probleme
+![UDP COAP](Capture/coap/Udp_coap.png)
+
+Non les messages ne sont pas fragementé. Ils sont juste retransmis plusieurs fois
+
+# Question 6
+
+Leader : 28
+Router : 29
 

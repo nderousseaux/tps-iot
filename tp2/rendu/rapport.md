@@ -51,11 +51,11 @@ On renseigne égallement la clé de décryptage `masterkey : 00cafedeca00deadbea
 
 Dès leur allumage, les noeuds de type FTD (chez nous`m3-12` et `m3-14`) commencent à broadcast leur `Link request` pour s'annoncer à l'autre FTD.
 
-![image](Capture/Link_request.png)
+![image](../Capture/Link_request.png)
 
 Chaque routeur leader (chez nous `m3-14`) répond à l'autre FTD avec avec un `Link Request + Link Accept`.
 
-![LR+LA](Capture/LR_LA.png)
+![LR+LA](../Capture/LR_LA.png)
 
 Pour finir, le routeur non leader (chez nous, `m3-12`) valide l'élection avec un `Link Accept`. 
 
@@ -67,29 +67,29 @@ Dès leur allumage, les noeuds de type MTD (chez nous `m3-10`,`m3-11` et `m3-13`
 
 Dans les captures d'écran suivantes, nous verrons l'établissement du lien entre `m3-11` et le routeur `m3-14`.
 
-![Parent request](Capture/Parent_request.png)
+![Parent request](../Capture/Parent_request.png)
 
 Ensuite, les routeurs ayant reçu la `Parent request` répondent au MTD avec un `Parent response`. 
 
-![Parent Response](Capture/Parent_Response.png)
+![Parent Response](../Capture/Parent_Response.png)
 
 Ensuite, le noeud MTD renvoie au parent qu'il aura choisi un `Child ID request` pour récupérer un identifiant. 
 
-![Child ID Request](Capture/ChidIDRequest.png)
+![Child ID Request](../Capture/ChidIDRequest.png)
 
 Et pour finir, le FTD élu comme parent répondra avec un `Child ID response` pour donner le nouvel identifiant à l'enfant.
 
-![Child ID Response](Capture/ChildID_Response.png)
+![Child ID Response](../Capture/ChildID_Response.png)
 
 ### 3. Attribution des adresses (RLOC, IPv6)
 
 Lors de l'envoi du `Child ID Request` le MTD demande l'adresse `RLOC16` au routeur :
 
-![Requiest](Capture/Rloc16request.png)
+![Requiest](../Capture/Rloc16request.png)
 
 Lors de l'envoi du `Child ID Response` à son enfant, le FTD fourni une adresse `RLOC16` au MTD :
 
-![Addr](Capture/RLOC16addr.png)
+![Addr](../Capture/RLOC16addr.png)
 
 ## 3. Plan du réseau
 
@@ -113,7 +113,7 @@ On peut constater que les noeuds `m3-10` et `m3-13` ne se sont pas appareillés 
 
 ## 4. ICMPv6
 
-> **Note:** À partir de là, le travail à été effectué sur  d'autres noeuds, il est normal si les addresses ou les identifiants sont différents par rapport à la première partie du rapport.
+> **Note:** À partir de là, le travail à été effectué sur  d'autres noeuds (les anciens étants occupés, ou défectueux), il est normal si les addresses ou les identifiants sont différents par rapport à la première partie du rapport.
 
 Le connectivité entre nos noeuds est parfaitement fonctionnelle. 
 
@@ -178,13 +178,13 @@ Les MTD childs (`m3-XX`, `m3-XX` et `m3-XX`) tentent de joindre l'ancien leader 
 
 Apres quelques Data Response, les childs essayent de joindre leur encien leader mais en vain en envoyant des `Child Update Request`
 
-![MessagepourR2](Capture/Q6/MesspourR2.png)
+![MessagepourR2](../Capture/Q6/MesspourR2.png)
 
 Les MTD ayant remarqué l'absence de leader, commencent à envoyer des `Parents Request`. 
-![Parent request](Capture/Q6/Parent_R.png)
+![Parent request](../Capture/Q6/Parent_R.png)
 
 À partir de là, cela se déroule comme une élection de parent classique. Les MTD vont donc recevoir un `Parent Response` de `m3-57` qui c'est autoproclamé leader.
-![Parent request](Capture/Q6/P_response.png)
+![Parent request](../Capture/Q6/P_response.png)
 
 Et ensuite, comme dans une élection de parents classique, débute l'échange de `Child ID request` et de  `Child ID response` 
 ![Child request & Response](/Users/nderousseaux/code/tps/iot/tp2/Capture/Q6/Child_Rs.png)

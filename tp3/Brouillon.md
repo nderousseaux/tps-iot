@@ -71,3 +71,41 @@ Chaque IP est formé de la maniere suivante : FE80::::00AdresseMAC
 
 ![Mac et IPV6](img/Mac&IPV6.png)
 
+On analyse une trame applicative : 
+
+![7 vers 1](Capture/Data_trame.png)
+
+Les diff champs : 
+- Tf = 3 : Traffic class et flow label => élidée 
+- nhc = true : (prochain en tête est compréssé)
+- hlim = 2 : le hop limit est à 64 
+- CID (Context Identifier extention) = 1 : 8 bit de CID suit directement le DAM (Destination address mode)
+- sam = 3 : L'IPv6 de la source est fe80::ff:fe00:AddrMAC
+- Mcast = 0 : pas de multicast
+- dam = 1 : L'Ipv6 destination est fe80::/64 + champs (champs qui correspondent au 16 bits qui suivent)
+
+Le message envoyé : Hello 2 from the cli 
+
+L'en-tête IPV6 ne correspond pas à une en-tête standard, Elle a été compressé -> utilisation du protocole 6Lowpan
+
+## Question 5 
+On deplace le noeud 8 afin qu'il ne soit plus à porté du noeud 6
+![Nouvelle topo](img/deplacement.png)
+
+Il essaye d'atteindre le noeud 6 : Perte
+![Perte](Capture/Perte8_6.png)
+
+Le noeud 4 envoie un DIO à tous les noeud à proximité dont le 8 qui n'a pas reussi à joindre don parent depuis un moment.
+![4 DIO](Capture/4_nvparent.png)
+
+4 est à present son nouveau parent. Il lui envoie ses données applicative. 
+![App](Capture/App8_4.png)
+
+## Question 6
+
+Le script compte le nombre de message reçu et envoyé pour chacun des noeuds et au total. 
+Tout en calculant le (total paquet reçu / total paquet envoyé) la Qos je crois (jai pas le mot exact)
+
+Le resultat est cohérent avec ce que nous avons affirmé à la question 1 parce que, malgré le faite que dans la simulation les liens soit 100% fiable. le PRR (total paquet reçu / total paquet envoyé) n'est pas toujours à 1 et cela ne peut s'expliqué que par des collisions
+
+![collisions](img/collision.png)

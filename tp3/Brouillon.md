@@ -6,7 +6,7 @@ En examinant la fenêtre Mote output, on peut voir que l'un des paquet est étiq
 
 Avec ce genre de protocole, le problème classique est le problème de colisions. En effet, si deux noeuds parlent en même temps, les signaux vont s'interférer, rendant la lecture des deux signaux difficile.
 
-## Question 2
+## Question 3
 
 Après avoir fait tourner la simulation durant 30 secondes, on peut voir que les noeuds envoient des paquets en continu, jusqu'à la reception de l'acquitement. 
 
@@ -15,15 +15,14 @@ Après avoir fait tourner la simulation durant 30 secondes, on peut voir que les
 Dans la figure ci-dessus, on peut voir que le noeud numéro 2 envoie des paquets en continu, jusqu'à ce que les noeuds à portée (12, 21 et 29) envoient leur acquittement respéctifs.
 
 On peut voir en vert les acquittements. Si ils ne sont pas reçu alors que le récepteurs étaient à porté, les messages s'afficheront en rouge, comme dans la figure suivante.
+
 <img src="img/timeline-pas-recu.png" alt="pas reçu" style="zoom:50%;" />
-
+  
 Pour simuler un message envoyé, mais pas reçu, on a diminué le *success ratio* du noeud récepteur.
-
-## Question 3
 
 ## Question 2 
 
-La communication commence par un broacast de tous les noeuds qui broadcast DIS
+La communication commence par un broacast de tous les noeuds qui broadcast DIS  
 
 ![DIS](Capture/DIS.png)
 
@@ -48,4 +47,27 @@ Rank : 896
 
 ## Question 3
 
+On lance le la simulation pendant 1 minute avec 10 noeuds pour simplifier. Puis on regarde le rang que partage chaque noeud dans leur message DIO.
+
+![Shémas](img/Shemas_brute.png)
+
+- Rank(1) = 256
+- Rank(2) = 2176
+- Rank(3) = 2176
+- Rank(4) = 1536
+- Rank(5) = 896
+- Rank(6) = 896
+- Rank(7) = 896
+- Rank(8) = 1536
+- Rank(9) = 2176
+- Rank(10) = 1536
+
+## Question 4
+
+Les IPV6 utilisé par les noeuds : aaaa <=> FE80::::
+![IPV6](img/IPV6.png)
+
+Chaque IP est formé de la maniere suivante : FE80::::00AdresseMAC
+
+![Mac et IPV6](img/Mac&IPV6.png)
 
